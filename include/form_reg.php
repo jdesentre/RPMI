@@ -1,0 +1,298 @@
+		<p>Rellena el siguiente formulario para registrarte en nuestra base de datos.</p> 
+        <form class="form-horizontal" action="" method="post" id="myForm">
+          
+          
+          <!--Grupo nombre-->
+          <div class="form-group" id="grp_nombre">
+            <label class="control-label col-sm-2" for="input_nombre"><span>*</span>Nombre:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="nombre" id="input_nombre" value="" placeholder="Escribe tu nombre y apellidos">
+            <!--Error nombre-->
+              <div class="alert alert-danger errores" id="error_nombre">
+                 <strong>¡Error!</strong> El nombre no puede estar en blanco ni tener menos de 3 caracteres.
+              </div>
+            <!--Fin error nombre-->
+            </div>
+          </div>
+          <!--Fin grupo nombre-->
+          
+          <!--Grupo correo-->
+          <div class="form-group" id="grp_correo">
+            <label class="control-label col-sm-2" for="input_correo"><span>*</span>Correo:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="correo" id="input_correo" placeholder="Escribe tu correo">
+            </div>
+          </div>
+          <!--Fin grupo -->
+          
+          
+          <!--Grupo contraseña-->
+          <div class="form-group" id="grp_password">
+            <label class="control-label col-sm-2" for="input_password"><span>*</span>Contraseña:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" data-toggle="tooltip" title="La contraseña debe tener entre 4 y 8 caracteres" data-placement="right" name="password" id="input_password" value="">
+            </div>
+          </div>
+          <!--Fin grupo contraseña-->
+          
+          <!--Grupo contraseña2-->
+          <div class="form-group" id="grp_password2">
+            <label class="control-label col-sm-2" for="input_password2"><span>*</span>Contraseña:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" data-toggle="tooltip" title="Las contraseñas no coinciden" data-placement="right" name="password2" id="input_password2" value="">
+            </div>
+          </div>
+          <!--Fin grupo contraseña-->
+          
+          
+          <!--Grupo radio-->
+          <div class="form-group" id="grp_raza">
+            <label class="control-label col-sm-2" for="input_genero"><span>*</span>Raza:</label>
+            <div class="col-sm-10">
+                <label class="radio-inline"><input type="radio" name="raza" id="radio1">Humano</label>
+                <label class="radio-inline"><input type="radio" name="raza" id="radio2">Elfo</label>
+                <label class="radio-inline"><input type="radio" name="raza" id="radio3">Hobbit</label>
+                <label class="radio-inline"><input type="radio" name="raza" id="radio4">Istari</label>
+                <label class="radio-inline"><input type="radio" name="raza" id="radio5">T.Bombadil</label>
+                
+                <!--Error radio-->
+              <div class="alert alert-danger errores" id="error_radio">
+                 <strong>¡Error!</strong> Debes elegir al menos una raza.
+              </div>
+            	<!--Fin error-->
+            </div>
+          </div>
+          <!--fin grupo-->
+          
+          <!--Grupo pais-->
+          <div class="form-group" id="grp_pais">
+            <label class="control-label col-sm-2" for="sel1"><span>*</span>País:</label>
+            <div class="col-sm-10"> 
+              <select class="form-control" name="pais" id="input_pais">
+                <option value="">Elige un país...</option>
+                <?php
+                
+                
+                $sql = "SELECT * FROM apps_countries ORDER BY country_name";
+                $result = mysqli_query($conn, $sql);
+                 // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo '<option value="' . $row['id'] . '">' . $row['country_name'] . '</option>
+                    ';
+                }
+                
+                ?>
+    
+              </select>
+              
+              <!--Error pais-->
+              <div class="alert alert-danger errores" id="error_pais">
+                 <strong>¡Error!</strong> Debes elegir al menos un país.
+              </div>
+            	<!--Fin error-->
+            </div>
+          </div>
+          <!--Fin grupo pais-->
+    
+          
+          <div class="form-group" id="grpCheck"> 
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label><input type="checkbox" id="checkBox"> Acepto las <a href="" data-toggle="modal" data-target="#myModal">condiciones</a> de uso de la página.</label>
+              </div>
+              <!--Error Check-->
+              <div class="alert alert-danger errores" id="error_check">
+                 <strong>¡Error!</strong> Debes aceptar las condiciones.
+              </div>
+              <!--Fin error-->
+            </div>
+            
+          </div>
+
+          <div class="form-group"> 
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="hidden" name="nota" value="5.5">
+              	<span class="btn btn-default" id="btn_send" >Enviar <i class="glyphicon glyphicon-ok"></i></span>
+              
+            </div>
+          </div>
+      
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Condiciones de uso</h4>
+      </div>
+      <div class="modal-body">
+        <p>Al registrarte te comprometes a no revelar los secretos de la milenaria y secreta orden de los canteros.</p>
+        <p>En caso de incumplimiento, al usuario se le hinchará el estómago y se le carén todos los pelos menos tres.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!--Fin modal-->
+
+
+<script>
+//Obtenemos los elementos del DOM
+var myForm = document.getElementById('myForm');
+var btnSend = document.getElementById('btn_send');
+
+var inputNombre = document.getElementById('input_nombre');
+var inputCorreo = document.getElementById('input_correo');
+var inputCheck = document.getElementById('checkBox');
+var inputPais = document.getElementById('input_pais');
+
+var inputRadio1 = document.getElementById('radio1');
+var inputRadio2 = document.getElementById('radio2');
+var inputRadio3 = document.getElementById('radio3');
+var inputRadio4 = document.getElementById('radio4');
+var inputRadio5 = document.getElementById('radio5');
+
+
+
+//Listener para el botón de enviar
+btnSend.addEventListener('click',validateForm);
+
+function validateForm()
+{
+	//Ponemos la variable de errores en falso
+	var error = false;
+	
+	//Comprobamos que el nombre no está vacío y que tiene más de 2 caracteres 
+	//mediante Javascript, y sin efecto de aparición
+	var nombreValue = inputNombre.value;
+	var errorNombre = document.getElementById('error_nombre');
+	if(nombreValue == "" || nombreValue.length < 3)
+	{
+		error = true;
+		errorNombre.style.display = "block";
+		
+	}
+	else
+	{
+		errorNombre.style.display = "none";
+	}
+	
+	//Validamos el correo mediante función externa
+	//Validación con JQuery, sin alerta y cambiando solo el CSS
+	var correoValue = inputCorreo.value;
+	if(!validateEmail(correoValue))
+	{
+		error = true;
+		$("#grp_correo").addClass('has-error');
+		$("#grp_correo").removeClass('has-success');
+	}
+	else
+	{
+		$("#grp_correo").removeClass('has-error');
+		$("#grp_correo").addClass('has-success');
+	}
+	
+	//Validamos la contraseña (tiene que tener entre 4 y 8 caracteres)
+	//Validación mediante JQuery, lanzando el Tooltip y usando los CSS de Bootstrap
+	$passwordValue = $("#input_password").val();
+	if($passwordValue.length < 4 || $passwordValue.length > 8)
+	{
+		
+		error = true;
+		$("#input_password").tooltip('show');
+		$("#grp_password").addClass('has-error');
+		$("#grp_password").removeClass('has-success');
+	}
+	else
+	{
+		$("#input_password").tooltip('destroy');
+		$("#grp_password").removeClass('has-error');
+		$("#grp_password").addClass('has-success');
+		
+		//Si la contraseña es correcta, comprobamos que la contraseña repetida está correcta
+		$passwordValue2 = $("#input_password2").val();
+		if($passwordValue != $passwordValue2)
+		{
+			error = true;
+			$("#input_password2").tooltip('show');
+			$("#grp_password2").addClass('has-error');
+			$("#grp_password2").removeClass('has-success');
+		}
+		else
+		{
+			$("#input_password2").tooltip('destroy')
+			$("#grp_password2").removeClass('has-error');
+			$("#grp_password2").addClass('has-success');
+		}
+	}
+	
+	
+	
+	//Validamos el radio button (cada ID de forma independiente)
+	if(!inputRadio1.checked && !inputRadio2.checked && !inputRadio3.checked && !inputRadio4.checked && !inputRadio5.checked) 
+	{
+		error = true;
+		$("#error_radio").slideDown('slow');
+		
+	}
+	else
+	{
+		$("#error_radio").slideUp('fast');
+	}
+	
+	//Validamos el pais
+	if(inputPais.value == '') 
+	{
+		error = true;
+		$("#error_pais").slideDown('slow');
+		
+	}
+	else
+	{
+		$("#error_pais").slideUp('fast');
+	}
+	
+	//Comprobamos si el checkbox está activado
+	if(!inputCheck.checked)
+	{
+		error = true;
+		$("#error_check").slideDown('slow');	
+		$("#grpCheck").addClass('has-error');
+	}
+	else
+	{
+		
+		$("#error_check").slideUp('fast');
+	}
+	
+	//Si no hay errores, mandamos el formulario
+	if(error === false) {
+		//myForm.submit();
+		console.log('enviado');
+	}
+}
+
+//Función externa que valida el correo
+//http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+</script>
+
+
+
+    </div>
+
+
+
+
+
+

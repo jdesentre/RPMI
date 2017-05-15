@@ -1,0 +1,265 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background-color: #EBEBEB;
+	padding: 0px;
+	font-family: 'arconregular';
+}
+
+/*Fonts*/
+@font-face {
+    font-family: 'arconregular';
+    src: url('../fonts/arcon-regular-webfont.woff2') format('woff2'),
+         url('../fonts/arcon-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'day_romanregular';
+    src: url('../fonts/dayrom__-webfont.woff2') format('woff2'),
+         url('../fonts/dayrom__-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'dangerbotregular';
+    src: url('../fonts/dangerbot-webfont.woff2') format('woff2'),
+         url('../fonts/dangerbot-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/*End Fonts*/
+
+a:link {
+	color: #B10002;
+	text-decoration:underline;
+	font-weight: bold;
+}
+a:hover {
+	color:#ED0D10;
+}
+a:visted {
+	color: #F14E72;
+}
+
+
+/*Marco de imagen*/
+.imagen_frame {
+	padding: 5px 5px 1px 5px;
+	margin: 15px;
+	background-color: white;
+	border-style:solid;
+	border-width:1px; 
+}
+
+/*Menu*/
+#menu {
+    
+	background-color: #333;
+    width: 100%;
+	padding: 0px 12px;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+}
+
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+#menu li {
+    float: left;
+}
+
+#menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #B46E6F;
+}
+
+/*HEADER*/
+.header {
+	background-color:#397CA6;
+	min-height: 120px;
+    color:white;
+    text-align:center;
+	font-family:  'dangerbotregular', cursive;
+	font-size: 60px;
+	line-height: 120px;
+}
+
+.header span {
+	color: #F19192;
+	font-weight:lighter;
+	text-shadow: 2px 2px #000000;
+	text-transform:uppercase;
+}
+
+nav {
+	margin-bottom: 0px !important;
+}
+
+/*BREADCRUMB
+#nav {
+    width: 100%;
+	background-color:  #6CBFE8;
+    color: #051F64;
+    padding: 6px 12px;
+}
+*/
+
+/* Lightbox */
+#lightbox {
+	margin: 80px 0px;
+	padding-bottom: 150px;
+}
+	
+/*ARTICULO*/
+#article {
+	margin: auto;
+    width: 100%;
+	padding: 14px 0px;
+	overflow:auto;
+	line-height: 1.2em;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+/*Entradilla&titulo*/
+.titulo {
+	font-family: 'day_romanregular';
+	font-size: 1.5em;
+	line-height: 2.5em;
+	padding: 0px 15px;	
+	
+}
+.titulo h1 {
+	margin: 0px;
+}
+
+.entradilla {
+	min-width:480px;
+}
+
+.col_entradilla {
+	width: 50%;
+	float:left;
+}
+
+.col_entradilla p {
+	padding: 0px 10px 5px 10px;
+	font-weight:bold;
+	text-align:justify;
+	font-size:1.1em;
+	margin: 15px 0px;
+	
+}
+
+/*COLUMNAS ARTÍCULOS - section*/
+.section {
+	width: 25%;
+	float:left;
+	min-width:150px;
+}
+.section img {
+	width: 100%;
+}
+.section p {
+	margin: 10px;
+	text-indent:10px;
+}
+.no-indent {
+	text-indent: 0px !important;
+}
+
+/*cita*/
+blockquote {
+  
+  font-size: 1.2em;
+  line-height: 1.4em;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-right: 15px;
+  padding-right: 15px;
+  text-align:right;
+  border-right: 3px solid #ccc;
+ 
+} 
+blockquote span {
+	font-style:italic;
+	font-size: 0.8em;
+}
+
+/*ladillo*/
+.ladillo {
+	font-variant:small-caps;
+	padding: 15px 0px 0px 20px;
+	font-weight:bold;
+	font-size: 1.2em;
+}
+
+.border-left {
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-color: black;
+}
+
+/*Letra capitular*/
+.capitalLetter
+{
+   float:left;
+   color:black;
+   font-size:45px;
+   line-height:30px;
+   padding:0px;
+   font-family:times;
+   margin-right: 5px;
+}
+
+/*PIE DE PÁGINA - footer*/
+
+#footer {
+	clear: both;
+	background-color: #000;
+    width: 100%;
+    color:white;
+    text-align:center;
+    padding:5px;
+    vertical-align: middle;
+
+}
+#footer a {
+	color: #FFC4C5;
+}
+
+/*Formulario*/
+form label span {
+	color:#FF0004;
+}
+
+.errores {
+	display: none;
+	margin-top: 10px;
+	margin-bottom: 0px !important;
+}

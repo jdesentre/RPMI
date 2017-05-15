@@ -1477,15 +1477,16 @@ abbr[data-original-title] {
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
-  font-size: 17.5px;
+  font-size: 0.9em;
   border-left: 5px solid #eee;
+  font-style: italic;
 }
 blockquote p:last-child,
 blockquote ul:last-child,
 blockquote ol:last-child {
   margin-bottom: 0;
 }
-blockquote footer,
+blockquote foot,
 blockquote small,
 blockquote .small {
   display: block;
@@ -1493,7 +1494,7 @@ blockquote .small {
   line-height: 1.42857143;
   color: #777;
 }
-blockquote footer:before,
+blockquote foot:before,
 blockquote small:before,
 blockquote .small:before {
   content: '\2014 \00A0';
@@ -1506,16 +1507,16 @@ blockquote.pull-right {
   border-right: 5px solid #eee;
   border-left: 0;
 }
-.blockquote-reverse footer:before,
-blockquote.pull-right footer:before,
+.blockquote-reverse foot:before,
+blockquote.pull-right foot:before,
 .blockquote-reverse small:before,
 blockquote.pull-right small:before,
 .blockquote-reverse .small:before,
 blockquote.pull-right .small:before {
   content: '';
 }
-.blockquote-reverse footer:after,
-blockquote.pull-right footer:after,
+.blockquote-reverse foot:after,
+blockquote.pull-right foot:after,
 .blockquote-reverse small:after,
 blockquote.pull-right small:after,
 .blockquote-reverse .small:after,
@@ -3229,7 +3230,7 @@ fieldset[disabled] .btn-success.focus {
 }
 .btn-info {
   color: #fff;
-  background-color: #5bc0de;
+  background-color: #62DCDA;
   border-color: #46b8da;
 }
 .btn-info:focus,
