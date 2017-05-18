@@ -49,11 +49,11 @@
           <div class="form-group" id="grp_raza">
             <label class="control-label col-sm-2" for="input_genero"><span>*</span>Raza:</label>
             <div class="col-sm-10">
-                <label class="radio-inline"><input type="radio" name="raza" id="radio1">Humano</label>
-                <label class="radio-inline"><input type="radio" name="raza" id="radio2">Elfo</label>
-                <label class="radio-inline"><input type="radio" name="raza" id="radio3">Hobbit</label>
-                <label class="radio-inline"><input type="radio" name="raza" id="radio4">Istari</label>
-                <label class="radio-inline"><input type="radio" name="raza" id="radio5">T.Bombadil</label>
+                <label class="radio-inline"><input type="radio" name="raza" id="radio1" value="humano">Humano</label>
+                <label class="radio-inline"><input type="radio" name="raza" id="radio2" value="elfo">Elfo</label>
+                <label class="radio-inline"><input type="radio" name="raza" id="radio3" value="hobbit">Hobbit</label>
+                <label class="radio-inline"><input type="radio" name="raza" id="radio4" value="mago">Istari</label>
+                <label class="radio-inline"><input type="radio" name="raza" id="radio5" value="indefinido">T.Bombadil</label>
                 
                 <!--Error radio-->
               <div class="alert alert-danger errores" id="error_radio">
@@ -73,12 +73,21 @@
                 <?php
                 
                 
+				
+				
+				
                 $sql = "SELECT * FROM apps_countries ORDER BY country_name";
+				
+				//echo $sql;
+
+				
                 $result = mysqli_query($conn, $sql);
+				
+				
                  // output data of each row
                 while($row = mysqli_fetch_assoc($result)) {
                     echo '<option value="' . $row['id'] . '">' . $row['country_name'] . '</option>
-                    ';
+					';
                 }
                 
                 ?>
@@ -187,7 +196,7 @@ function validateForm()
 	//Validamos el correo mediante función externa
 	//Validación con JQuery, sin alerta y cambiando solo el CSS
 	var correoValue = inputCorreo.value;
-	if(!validateEmail(correoValue))
+	if(validateEmail(correoValue) === false)
 	{
 		error = true;
 		$("#grp_correo").addClass('has-error');
@@ -274,8 +283,8 @@ function validateForm()
 	
 	//Si no hay errores, mandamos el formulario
 	if(error === false) {
-		//myForm.submit();
-		console.log('enviado');
+		myForm.submit();
+		//console.log('enviado');
 	}
 }
 

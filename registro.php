@@ -1,12 +1,38 @@
 <?php
 include('include/config.php');
 
-//Conectamos con la base de datos
-$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+if (!$conn) {
+    die("Error conectando a la BD: " . mysqli_connect_error());
+}
+mysqli_query($conn,"set names 'utf8'");
+
+
+
+if(isset($_POST['nombre']))
+{
+	$sql = "INSERT INTO `losenlaces_pr7`.`usuarios` 
+	(`id_usuario`, `nombre`, `correo`, `cultura`, `password`, `id_pais`, `time`) 
+	VALUES (
+		NULL, 
+		'" . $_POST['nombre'] . "', 
+		'" . $_POST['correo'] . "', 
+		'" . $_POST['raza'] . "', 
+		'" . md5($_POST['password']) . "', 
+		'" . $_POST['pais'] . "', 
+		'" . time() . "'
+	);";
+	
+	mysqli_query($conn,$sql);
+	
+	
+	//print_r($_POST);
+}
+
+
 
 
 //Array para construir el breadcrumb
@@ -67,4 +93,4 @@ else
 
 </body>
 </html>
-<?php mysqli_close($conn); ?>
+	
