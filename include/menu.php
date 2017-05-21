@@ -8,7 +8,11 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li <?php echo ($cpage == 'registro') ? 'class="active"' : '' ?>><a href="registro.php"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+          <?php if(isset($_SESSION['uid'])) : ?>
+          <li><a href="registro.php?logout="> Logout</a></li>
+          <?php else : ?>
           <li <?php echo ($cpage == 'login') ? 'class="active"' : '' ?>><a href="registro.php?login="><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <?php endif ?>
         </ul>
       </div>
     </nav>
