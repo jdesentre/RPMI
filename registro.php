@@ -40,6 +40,7 @@ if(isset($_POST['nombre']))
 		$_SESSION['uid'] = $last_id;
 		
 		//Refresco la página
+		header("Refresh:0");
 	}
 	else
 	{

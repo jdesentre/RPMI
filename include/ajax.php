@@ -16,7 +16,8 @@ $result = mysqli_query($conn, $sql);
 //Si hay resultados, es que el usuario existe
 if(mysqli_num_rows($result) > 0)
 {
-	echo "Existe usuario";
+	$user = mysqli_fetch_assoc($result);
+	echo json_encode($user);
 }
 else
 {
